@@ -1,0 +1,6 @@
+{
+  "name": "Mechanica",
+  "description": "An interactive visuals, physics simulator, and blueprint system to learn how natural systems, engineering structures, and technology actually work.",
+  "requestFramePermissions": [],
+  "majorCapabilities": []
+}
