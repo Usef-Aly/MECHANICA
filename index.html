@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mechanica - Interactive Systems Catalog & Physics Simulator</title>
+    <script>
+      // Early suppression of benign WebSocket / Vite HMR connection failures in sandbox environment
+      window.addEventListener('unhandledrejection', function(event) {
+        var reason = event.reason;
+        if (!reason) return;
+        var msg = typeof reason === 'string' ? reason : (reason.message || '');
+        if (
+          msg.indexOf('WebSocket') !== -1 ||
+          msg.indexOf('connection failed') !== -1 ||
+          msg.indexOf('closed without opened') !== -1 ||
+          msg.indexOf('ws://') !== -1 ||
+          msg.indexOf('wss://') !== -1
+        ) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+      });
+
+      window.addEventListener('error', function(event) {
+        var msg = event.message || '';
+        if (
+          msg.indexOf('WebSocket') !== -1 ||
+          msg.indexOf('connection failed') !== -1 ||
+          msg.indexOf('closed without opened') !== -1 ||
+          msg.indexOf('ws://') !== -1 ||
+          msg.indexOf('wss://') !== -1
+        ) {
+          event.preventDefault();
+          event.stopPropagation();
+        }
+      }, true);
+    </script>
+    <script type="module" crossorigin src="/assets/index-DwDvqCsh.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-DJgsT5uQ.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
+
