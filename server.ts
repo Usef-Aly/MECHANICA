@@ -6,7 +6,6 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-// Initialize Gemini Client Lazily if key is present
 let geminiClient: GoogleGenAI | null = null;
 function getGeminiClient() {
   const apiKey = process.env.GEMINI_API_KEY;
@@ -32,7 +31,6 @@ async function startServer() {
 
   app.use(express.json());
 
-  // API Route: Generate a fully structured schematic explanation for any custom topic
   app.post("/api/explain", async (req, res) => {
     try {
       const { topic, lang = "en" } = req.body;
@@ -223,7 +221,6 @@ Be incredibly precise, creative, and clear. Avoid robotic boilerplate. Return th
     });
   }
 
-  // Bind server strictly to host 0.0.0.0 and Port 3000 as requested
   app.listen(PORT, "0.0.0.0", () => {
     console.log(`Mechanica node network online at port ${PORT}`);
   });
